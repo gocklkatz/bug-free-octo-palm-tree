@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Mission 3</title>
+        <style>
+            input[type="button"] {
+                background-color: pink;
+            }
+        </style>
+        <script>
+            
+            function addTask() {
+                var newTask = document.createElement("div");
+                var textField = document.getElementById("feld");
+                newTask.innerHTML = textField.value;
+                newTask.setAttribute("onClick", "deleteThis(this)");
+
+                var taskList = document.getElementById("liste");
+                taskList.appendChild(newTask);
+            }
+
+            function deleteAll() {
+                var taskList = document.getElementById("liste");
+                taskList.innerHTML = "";
+            }
+
+            function deleteThis(element) {
+                var taskList = document.getElementById("liste");
+                taskList.removeChild(element);
+            }
+        </script>
+    </head>
+    <body>
+        Aufgaben fuer Sonderausstellung
+        <br/>
+        <br/>
+        <input type="text" id="feld"/>
+        <br/>
+        <input type="button" value="Einfuegen" onclick="addTask();" />
+        <input type="button" value="Loeschen" onclick="deleteAll();"
+        <br/>
+        <br/>
+        <div id="liste" />
+    </body>
+</html>

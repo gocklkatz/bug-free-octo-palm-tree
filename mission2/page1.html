@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Page 1</title>
+
+  <style>
+    a:link {
+      color: hotpink;
+    }
+
+    a:visited {
+      color: green;
+    }
+  </style>
+
+  <script>
+
+    function checkPassword() {
+      var password = document.getElementById("passwordField");
+      var passwordText = password.value;
+
+      if (passwordText == "Ernest1") {
+        return true;
+      } else {
+        alert("Zugriff verweigert!");
+        return false;
+      }
+    }
+
+  </script>
+
+</head>
+
+<body>
+  <div>
+    <a href="page1.html">Page 1</a>
+  </div>
+
+  <br />
+
+  <div>
+    <input id="passwordField" type="password" />
+    <a href="page2.html" onClick="return checkPassword();">Enter Page 2</a>
+  </div>
+
+  <br />
+</body>
+
+</html>
