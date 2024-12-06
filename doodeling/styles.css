@@ -5,3 +5,27 @@
     color: grey;
     background-color: lightblue;
 }
+.textAlign {
+    text-align: center;
+}
+.fontWeight {
+    font-weight: 700;
+}
+.textDecoration {
+    text-decoration: underline wavy green;
+    /*overline, line-through, none*/
+    border: solid;
+}
+.lineHeight{
+    line-height: 2;
+}
+.letterSpacing {
+    letter-spacing: .4rem;
+}
+.fontSize {
+    font-size: 200%;
+}
+.fontFamily {
+    /*font-family: Verdana, Geneva, Tahoma, sans-serif;*/
+    font-family: fantasy;
+}
