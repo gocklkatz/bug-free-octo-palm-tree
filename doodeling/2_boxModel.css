@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+}
+
+h1 {
+    /* https://coolors.co/palettes/trending */
+    color: purple;
+}
+
+h2 {
+    background-color: bisque;
+    border: 1px solid black;
+}
+
+#one {
+    background-color: brown;
+    width: 200px;
+    height: 200px;
+
+    /*
+    https://developer.mozilla.org/en-US/docs/Web/CSS/border
+    border-width: 3px;
+    border-style: solid;
+    border-color: yellowgreen;
+    */
+    border: 5px solid black;
+    /*box-sizing: border-box;*/
+    border-radius: 5px;
+}
+#two {
+    color: white;
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+
+    margin: 10px;
+}
+#three {
+    background-color: chocolate;
+    width: 200px;
+
+    border: 10px solid black;
+
+    /*
+    https://developer.mozilla.org/en-US/docs/Web/CSS/padding
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    */
+    padding: 10px;
+
+
+    /*
+    https://developer.mozilla.org/en-US/docs/Web/CSS/margin
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    */
+    margin: 10px;
+}
+
+button {
+    border-width: 0px;
+    background-color: transparent;
+    color: lightblue;
+    border: 2px solid lightblue;
+    border-radius: 5px;
+    padding: 1px 10px;
+}
+button:hover {
+    color: darkblue;
+    border: 2px solid darkblue;
+}
+
+/*
+display property
+https://developer.mozilla.org/en-US/docs/Web/CSS/display
+  inline
+  block
+  inline-block
+*/
