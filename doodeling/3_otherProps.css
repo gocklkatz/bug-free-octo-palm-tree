@@ -1,0 +1,89 @@
+h1 {
+  color: purple;
+}
+
+#rgbasec {
+  width: 150px;
+  height: 150px;
+  background-color: magenta;
+}
+#rgbadiv {
+  width: 50%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+#opacity {
+  width: 50%;
+  height: 50%;
+  background-color: yellow;
+  opacity: 0.5;
+}
+
+#static div {
+  width: 100px;
+  height: 100px;
+  background-color: #3d405b;
+  border: 2px solid black;
+  margin: 10px;
+  display: inline-block;
+}
+#static #middle {
+  background-color: #81b29a;
+  position: relative;
+  top: 10px;
+}
+
+#transition {
+  width: 100px;
+  height: 100px;
+  background-color: magenta;
+  transition: 2s;
+}
+#transition:hover {
+  background-color: cyan;
+  border-radius: 50%;
+}
+
+#transform h3 {
+  background-color: #2a9d8f;
+  border: 5px solid #264653;
+  color: #eae2b7;
+  padding: 0.7em;
+  width: 150px;
+  font-size: 1em;
+  text-align: center;
+  margin: 10px auto;
+  font-family: "Courier New";
+  font-weight: lighter;
+
+  transform: rotate(45deg);
+}
+
+#secHoverEffect div.container {
+  width: 200px;
+  height: 200px;
+  background-color: #1f1b29;
+  position: relative;
+}
+#secHoverEffect div.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 45%;
+  left: 25%;
+}
+#secHoverEffect button {
+  background: none;
+  color: #ffafcc;
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  transition: border-color 0.5s, color 0.5s, box-shadow 0.5s, transform 0.5s;
+}
+#secHoverEffect button:hover {
+  border-color: #a2d2ff;
+  color: #f4d2df;
+  box-shadow: 2px 2px 2px 2px #a2d2ff;
+  transform: translateY(-0.25em);
+  cursor: pointer;
+}
