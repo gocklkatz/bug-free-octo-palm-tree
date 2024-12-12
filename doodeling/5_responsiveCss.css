@@ -1,0 +1,52 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+#container {
+  background-color: #003049;
+  width: 90%;
+  height: 500px;
+  margin: 0 auto;
+  border: 5px solid #003049;
+
+  display: flex;
+
+  /*flex-direction: row;*/
+  /*flex-direction: row-reverse;*/
+  /*flex-direction: column;*/
+  /*flex-direction: column-reverse;*/
+
+  /*justify-content: flex-start;*/
+  /*justify-content: flex-end;*/
+  /*justify-content: center;*/
+  /*justify-content: space-between;*/
+  /*justify-content: space-around;*/
+  /*justify-content: space-evenly;*/
+
+  /*flex-wrap: wrap;*/
+  /*flex-wrap: wrap-reverse;*/
+
+  /*align-items: flex-start;*/
+  /*align-items: flex-end;*/
+  /*align-items: center;*/
+  /*align-items: baseline;*/
+
+  /*align-content: space-between;*/
+  /*align-content: flex-start;*/
+  /*align-content: flex-end;*/
+  /*align-content: center;*/
+}
+
+#container div {
+  width: 100px;
+  height: 100px;
+}
+
+#container div:first-child {
+    /*align-self: flex-end;*/
+    /*align-self: center;*/
+
+    /*flex-basis: ;*/
+    /*flex-grow: ;*/
+    /*flex-shrink: ;*/
+}
