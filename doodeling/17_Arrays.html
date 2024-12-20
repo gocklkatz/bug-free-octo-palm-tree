@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Arrays</title>
+    <script>
+        /*
+          https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+          
+          push (add end) and pop (remove end)
+          shift (remove start) and unshift (add start)
+          concat, indexOf, includes
+          reverse (destructive!)
+          slice, splice, sort
+          join
+          
+          let colors = ["red", "green", "blue"];
+          colors.length;
+          let mixed = ["red", 1, true, null, undefined];
+
+          ["red", "blue", empty x 7, "indigo"]
+
+          let colors = ["red", "green", "blue"];
+          colors.slice() //copy
+          color(1); //index of 1 to end
+          color(1, 2); //index of 1 to before 2
+
+          ['hi', 'ho'] === ['hi', 'ho'] //false
+        */
+
+        const cars = ["eins", "zwei", "drei"];
+        cars.push("vier");
+        console.log(cars.join());
+        console.log(cars.pop());
+    </script>
+</head>
+
+<body></body>
+
+</html>
