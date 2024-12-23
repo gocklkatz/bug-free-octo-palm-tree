@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Functions</title>
+    <script>
+      /*
+      function sayHello(name) {
+        console.log(`Hello ${name}`);
+      }
+      sayHello("Stefan");
+      sayHello("Max");
+
+      //https://developer.mozilla.org/en-US/docs/Glossary/Hoisting
+      //method vs. function (every method is a function)
+      //In JavaScript, if you do not specify a parameter in the 
+      // function call, the default value for that parameter is 
+      // undefined.
+
+      //function statement
+      //simple function with return value
+      function add(a, b) {
+        return a + b;
+      }
+      console.log(add(2, 3));
+
+      //function expression
+      //Unlike function declarations, function expressions aren’t 
+      // hoisted. You must define them before you can call them.
+      const add2 = function (a, b) {
+        return a + b;
+      };
+      console.log(add2(2, 3));
+
+      //arrow function
+      const add3 = (a, b) => a + b;
+      console.log(add3(2, 3));
+
+      //function with default value
+      function add4(a = 0, b = 0) {
+        return a + b;
+      }
+      console.log(add4(2, 3));
+
+      //function with rest parameter
+      function add5(...args) {
+        return args.reduce((a, b) => a + b);
+      }
+      console.log(add5(2, 3, 4, 5));
+
+      //function with spread operator
+      function add6(a, b, c, d) {
+        return a + b + c + d;
+      }
+      const numbers = [2, 3, 4, 5];
+      console.log(add6(...numbers));
+
+      //function with object as parameter
+      function greet(person) {
+        console.log(`Hello ${person.name}`);
+      }
+      greet({ name: "Stefan" });
+
+      //Variables declared with var are scoped to functions but
+      // are not scoped to blocks.
+      function test() {
+        var x = 1;
+      }
+      //console.log(x); //ReferenceError: x is not defined
+
+      //lexical scope
+      function outer() {
+        const outerVar = "I'm the outer variable";
+        function inner() {
+          console.log(outerVar);
+        }
+        inner();
+      }
+      outer();
+
+      // Higher order functions
+      function callTwice(func) {
+        func();
+        func();
+      };
+
+      function laugh() {
+        console.log("haha");
+      }
+      callTwice(laugh);
+
+      //function returning a function
+      function makeBetweenFunc(min, max) {
+        return function (num) {
+          return num >= min && num <= max;
+        };
+      }
+      const isBetween0and18 = makeBetweenFunc(0, 18);
+      console.log(isBetween0and18(10));
+
+      //method 1
+      const math = {
+        add: function(a, b) {
+          return a + b;
+        }
+      }
+
+      //method 2
+      const math2 = {
+        add(a,b) {
+          return a + b;
+        }
+      }
+
+      //this
+      const person = {
+        firstName: "Stefan",
+        lastName: "Klinkusch",
+        fullName() {
+          return `${this.firstName} ${this.lastName}`;
+        }
+      }
+      console.log(person.fullName());
+      */
+
+      //invocation context
+      function sayHi() {
+        console.log("Hi");
+        console.log(this);
+      }
+      sayHi();
+      window.sayHi();
+    </script>
+  </head>
+
+  <body></body>
+</html>
