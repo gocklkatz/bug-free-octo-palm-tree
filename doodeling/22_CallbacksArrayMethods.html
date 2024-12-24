@@ -50,6 +50,9 @@
         const allEven = nums.every(num => num % 2 === 0);
 
         // reduce
+        // The second argument ist the initial value of the accumulator
+        // If it is missing the first element of the array is used as 
+        // the initial value
         const sum = nums.reduce((acc, num) => acc + num, 0);
     </script>
   </head>
