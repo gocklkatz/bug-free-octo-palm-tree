@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Newer Features</title>
+    <script>
+        //default parameters
+        function multiply(a, b) {
+            b = typeof b !== 'undefined' ? b : 1;
+            return a * b;
+        }
+        //Parameters are applied according to order
+        function add(a, b = 1) {
+            return a + b;
+        }
+
+        //spread in function calls
+        //The spread syntax in JavaScript allows an iterable 
+        // (like an array or string) to be expanded in places 
+        // where zero or more arguments (for function calls) 
+        // or elements (for array literals) are expected. It 
+        // is represented by three dots (...).
+        function sum(x, y, z) {
+            return x + y + z;
+        }
+        const numbers = [1, 2, 3];
+        console.log(sum(...numbers));
+        console.log(...'hello');
+
+        //spread in array literals
+        const arr1 = [0, 1, 2];
+        const arr2 = [3, 4, 5];
+        arr1.push(...arr2);
+        [...arr1, ...arr2]; //copies the content over
+        ['a', 'b', ...arr1];
+
+        //spread with objects
+        const obj1 = { foo: 'bar', x: 42 };
+        const obj2 = { foo: 'baz', y: 13 };
+        const merge = { ...obj1, ...obj2 }; //copies properties
+
+        const obj = {...[2,4,6,8]};
+        console.log(obj);
+        const objj ={..."ABCD"};
+        console.log(objj);
+
+        //rest parameter
+        //The rest parameter syntax allows a function to accept
+        // an indefinite number of arguments as an array, providing
+        // a way to represent variadic functions in JavaScript.
+        function sum(...theArgs) {
+            return theArgs.reduce((previous, current) => {
+                return previous + current;
+            });
+        }
+        console.log(sum(1, 2, 3));
+
+        //function arguments object
+        //The arguments object is an Array-like object corresponding
+        // to the arguments passed to a function.
+        function func1(a, b, c) {
+            console.log(arguments[0]);
+            console.log(arguments[1]);
+            console.log(arguments[2]);
+        }
+
+        //destructuring arrays
+        const foo = ['one', 'two', 'three'];
+        const [red, yellow, green] = foo;
+        const [blue, white] = foo;
+        const [first, ...rest] = [1, 2, 3, 4, 5];
+
+        //destructuring objects
+        const user = {
+            id: 42,
+            is_verified: true
+        };
+        const { id, is_verified: verificado, role = 'normie' } = user;
+        console.log(role);
+
+        //destructuring parameters
+        function userId({ id }) {
+            return id+1;
+        }
+        console.log(userId(user));
+    </script>
+  </head>
+
+  <body></body>
+</html>
