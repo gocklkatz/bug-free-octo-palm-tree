@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript World Of DOM</title>
+    <style>
+      h1 {
+        color: purple;
+      }
+      .paraClass {
+        color: blue;
+      }
+    </style>
+    <script>
+      //window object
+      //console.log(window);
+
+      //DOM - Document Object Model
+      //document object
+      //console.log(document);
+      //window.document.write('Hello, World!');
+
+      //getElementById
+      //https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
+      //const somethingEl = document.getElementById('something');
+      //console.dir(somethingEl);
+
+      //getElementsByTagName
+      //https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByTagName
+      //getElementsByClassName
+      //https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName
+      //An HTMLCollection is a collection of HTML elements. It is
+      // a live collection, meaning that it automatically updates
+      // when the document changes.
+      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection
+      // https://developer.mozilla.org/en-US/docs/Web/API/Element
+      // https://developer.mozilla.org/en-US/docs/Web/API/Node
+
+      //querySelector
+      //https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+      //select by any css style selector
+      //document.querySelector('p'); //first p element
+      //document.querySelector('#heading'); //first element id heading
+      //document.querySelector('.paraClass'); //first element class paraClass
+      //document.querySelectorAll('.paraClass'); //all elements class paraClass
+
+      //innerText
+      //mdn: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText
+      //textContent
+      //mdn: https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
+      //innerHTML
+      //mdn: https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
+    </script>
+  </head>
+
+  <body>
+    <h1 id="heading">Hello, World!</h1>
+    <p id="paragraph">This is a paragraph.</p>
+    <p class="paraClass">This is another paragraph.</p>
+    <p class="paraClass">This is yet another paragraph.</p>
+    <script>
+      //getElementById
+      const heading = document.getElementById("heading");
+      console.log(heading);
+      console.log(heading.innerHTML);
+      console.log(heading.innerText);
+
+      //getElementsByTagName
+      const paragraphs = document.getElementsByTagName("p");
+      console.log(paragraphs);
+
+      //getElementsByClassName
+      const paraClasses = document.getElementsByClassName("paraClass");
+      console.log(paraClasses);
+
+      //querySelector
+      const paragraph = document.querySelector("#paragraph");
+      console.log(paragraph);
+      console.log(paragraph.innerHTML);
+      console.log(paragraph.innerText);
+
+      //querySelectorAll
+      const paraClassesAll = document.querySelectorAll(".paraClass");
+      console.log(paraClassesAll);
+    </script>
+  </body>
+</html>
