@@ -11,6 +11,9 @@
       .paraClass {
         color: blue;
       }
+      .classListColor {
+        color: red;
+      }
     </style>
     <script>
       //window object
@@ -56,6 +59,7 @@
 
   <body>
     <h1 id="heading">Hello, World!</h1>
+    <h2>classList</h2>
     <p id="paragraph">This is a paragraph.</p>
     <p class="paraClass">This is another paragraph.</p>
     <p class="paraClass">This is yet another paragraph.</p>
@@ -83,6 +87,66 @@
       //querySelectorAll
       const paraClassesAll = document.querySelectorAll(".paraClass");
       console.log(paraClassesAll);
+
+      //manipulate attributes
+      //https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+      document.querySelector("#heading").style = "color: red;";
+      document.querySelector("#heading").setAttribute("style", "color: blue;");
+
+      //changing styles with javascript
+      const myH1 = document.querySelector("#heading");
+      myH1.style.color = "green";
+      myH1.style.fontSize = "5em"; //camelCase vs. css font-size
+      //h1.style does not contain the current styles, at least if
+      // they are set in the css file. It only contains the styles
+      // that are set in the html file or by javascript.
+      myH1.style.border = "2px solid pink";
+      //get computed styles
+      console.log(window.getComputedStyle(myH1).color);
+
+      //classList
+      //https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+      const myH2 = document.querySelector("h2");
+      myH2.classList.add("classListColor");
+      //add, remove, contains, toggle,...
+
+      //Traversing Parent, Child, Sibling
+      console.log(myH2.parentElement);
+      console.log(myH2.nextElementSibling);
+      console.log(myH2.nextSibling);
+      console.log(myH2.previousElementSibling);
+      console.log(myH2.parentElement.children);
+      console.log(myH2.parentElement.children[0]);
+      console.log(myH2.parentElement.childElementCount);
+
+      //append, appendChild, prepend
+      const newParagraph = document.createElement("p");
+      newParagraph.innerText = "xXx xXx xXx";
+      document.body.appendChild(newParagraph);
+      //insertAdjacentElement()
+      //https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement
+
+      //remove, removeChild
+      //document.body.removeChild(newParagraph);
+      //b.parentElement.removeChild(b);
+
+      let pokeDiv = null;
+      for (let i = 0; i < 151; i++) {
+        const pokeImg = document.createElement("img");
+        pokeImg.src =
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" +
+          (i+1) +
+          ".png";
+        pokeImg.style.width = "100px";
+
+        if (i % 4 == 0) {
+          if(pokeDiv != null) {
+            document.body.appendChild(pokeDiv);
+          }
+          pokeDiv = document.createElement("div");
+        }
+        pokeDiv.appendChild(pokeImg);
+      }
     </script>
   </body>
 </html>
