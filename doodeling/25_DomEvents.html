@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript DOM Events</title>
+    <style></style>
+    <script>
+      // Examples of events in JavaScript
+      // MDN: https://developer.mozilla.org/en-US/docs/Web/Events
+      // 1. Mouse Events
+      //   - click
+      //   - dblclick
+      //   - mouseenter
+      //   - mouseleave
+      //   - mouseover
+      //   - mouseout
+      //   - mousedown
+      //   - mouseup
+      //   - mousemove
+      // 2. Keyboard Events
+      //   - keydown
+      //   - keyup
+      //   - keypress
+      // 3. Form Events
+      //   - submit
+      //   - change
+      //   - focus
+      //   - blur
+      // 4. Document/Window Events
+      //   - load
+      //   - resize
+      //   - scroll
+      //   - unload
+      //   - beforeunload
+      //   - error
+      //   - online
+      //   - offline
+      // 5. CSS Animation Events
+      //   - animationstart
+      //   - animationend
+      //   - animationiteration
+      // 6. Miscellaneous Events
+      //   - contextmenu
+      //   - DOMContentLoaded
+      //   - mousewheel
+      //   - wheel
+      //   - cut
+      //   - copy
+      //   - paste
+      //
+      // onClick vs addEventListener("click", func)
+      //
+      // 1. Event Handler
+      // function changeColor() {
+      //   const heading = document.getElementById("heading");
+      //   headingStyle = heading.style.color;
+      //   if (headingStyle === "red") {
+      //     heading.style.color = "black";
+      //   } else {
+      //     heading.style.color = "red";
+      //   }
+      // }
+    </script>
+  </head>
+  <body>
+    <!-- <h1 id="heading" onclick="console.log('hoi')">Click me to change color</h1> -->
+    <!-- <h1 id="heading" onclick="changeColor();">Click me to change color</h1> -->
+    <h1 id="heading">Click</h1>
+    <script>
+      // 2. Event Listener
+      // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+      // https://developer.mozilla.org/en-US/docs/Web/API/UI_Events
+      const heading = document.getElementById("heading");
+      //heading.onclick = changeColor;
+      heading.addEventListener("mouseenter", function () {
+        headingStyle = heading.style.color;
+        if (headingStyle === "red") {
+          heading.style.color = "black";
+        } else {
+          heading.style.color = "red";
+        }
+      });
+    </script>
+  </body>
+</html>
