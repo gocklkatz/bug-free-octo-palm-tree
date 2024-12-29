@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratch</title>
+</head>
+<body>
+    <span id="ziel"></span>
+
+    <script>
+        const ziel = document.getElementById("ziel");
+        window.addEventListener('keydown', function(event) {
+            if(event.key === "Backspace") {
+                ziel.innerHTML = ziel.innerHTML.slice(0, -1);
+            } else {
+                ziel.innerHTML += event.key;
+            }
+        });
+    </script>
+</body>
+</html>
