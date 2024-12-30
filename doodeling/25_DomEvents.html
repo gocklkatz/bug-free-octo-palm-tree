@@ -109,7 +109,49 @@
       //for (let button of buttons) {
       //  button.addEventListener("click", colorize);
       //}
-      
+      //
+      //preventDefault()
+      //const link = document.querySelector("a");
+      //link.addEventListener("click", function (event) {
+      //  event.preventDefault();
+      //  console.log("Default prevented");
+      //});
+      //
+      //Change and input events
+      //const input = document.querySelector("input");
+      //change event fires when input loses focus
+      //input.addEventListener("change", function (event) {
+      //  console.log(event.target.value);
+      //});
+      //input.addEventListener("input", function (event) {
+      //  console.log(event.target.value);
+      //});
+      //
+      //Event Bubbling
+      //
+      //Event bubbling means an event triggered on an element first 
+      // runs its own event handler, then “bubbles up” the DOM tree 
+      // to run handlers on parent elements (and so on). This lets 
+      // you listen for events on a common ancestor instead of 
+      // attaching handlers to each child.
+      //
+      //How to stop event bubbling?
+      //  event.stopPropagation()
+      //
+      //Event Delegation
+      //
+      //Event delegation is a technique involving adding event
+      // listeners to a parent element instead of adding them to
+      // the descendant elements. The listener will fire whenever
+      // the event is triggered on the descendant elements due to
+      // event bubbling up the DOM. The benefits of this technique
+      // are:
+      // Memory footprint is reduced because only one single
+      // event listener is attached to a single parent, instead of
+      // having to attach event listeners to all child elements.
+      // There is no need to unbind the handler from elements that
+      // are removed and to bind the event for new elements.
+      //
     </script>
   </body>
 </html>
