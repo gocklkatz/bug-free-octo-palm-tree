@@ -54,23 +54,26 @@
         }, delay);
       };
 
-      fakeRequestCallback(
-        "books.com",
-        (ret) => {
-          console.log(ret);
-          fakeRequestCallback(
-            "books.com/page1",
-            (ret) => {
-              console.log(ret);
-            },
-            (ret) => console.log(ret)
-          );
-        },
-        (ret) => console.log(ret)
-      );
+      // fakeRequestCallback(
+      //   "books.com",
+      //   (ret) => {
+      //     console.log(ret);
+      //     fakeRequestCallback(
+      //       "books.com/page1",
+      //       (ret) => {
+      //         console.log(ret);
+      //       },
+      //       (ret) => console.log(ret)
+      //     );
+      //   },
+      //   (ret) => console.log(ret)
+      // );
 
       //--- --- ---
 
+      //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+      //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+      //
       // THE PROMISE VERSION
       const fakeRequestPromise = (url) => {
         return new Promise((resolve, reject) => {
@@ -84,6 +87,116 @@
           }, delay);
         });
       };
+
+      // fakeRequestPromise("yelp.com/api/coffee/page1")
+      //   .then((data) => {
+      //     console.log("IT WORKED!!!!!! (page1)");
+      //     console.log(data);
+      //     fakeRequestPromise("yelp.com/api/coffee/page2")
+      //       .then((data) => {
+      //         console.log("IT WORKED!!!!!! (page2)");
+      //         console.log(data);
+      //       })
+      //       .catch((err) => {
+      //         console.log("OH NO, ERROR!!! (page2)");
+      //         console.log(err);
+      //       });
+      //   })
+      //   .catch((err) => {
+      //     console.log("OH NO, ERROR!!! (page1)");
+      //     console.log(err);
+      //   });
+
+      //Promise chaining is when you return a new promise inside a .then()
+      // call, allowing multiple asynchronous operations to run in sequence.
+      // Each .then() passes its resolved value to the next, and any error in
+      // the chain can be caught by a .catch(). This lets you handle operations
+      // in an orderly, predictable flow.
+
+      // fakeRequestPromise("yelp.com/api/coffee/page1")
+      // .then((data) => {
+      //   console.log("IT WORKED!!!!!! (page1)");
+      //   console.log(data);
+      //   return fakeRequestPromise("yelp.com/api/coffee/page2");
+      // })
+      // .then((data) => {
+      //   console.log("IT WORKED!!!!!! (page2)");
+      //   console.log(data);
+      //   return fakeRequestPromise("yelp.com/api/coffee/page3");
+      // })
+      // .then((data) => {
+      //   console.log("IT WORKED!!!!!! (page3)");
+      //   console.log(data);
+      // })
+      // .catch((err) => {
+      //   console.log("OH NO, A REQUEST FAILED!!!");
+      //   console.log(err);
+      // });
+
+      //--- --- ---
+
+      const delayedColorChange = (color, delay) => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            document.body.style.backgroundColor = color;
+            resolve();
+          }, delay);
+        });
+      };
+
+      // delayedColorChange("red", 1000)
+      //   .then(() => delayedColorChange("orange", 1000)) //implicit return!!!
+      //   .then(() => delayedColorChange("yellow", 1000))
+      //   .then(() => delayedColorChange("green", 1000))
+      //   .then(() => delayedColorChange("blue", 1000))
+      //   .then(() => delayedColorChange("indigo", 1000));
+
+      //--- --- ---
+
+      // async
+      // The async function declaration defines an asynchronous function,
+      // which returns an AsyncFunction object. An asynchronous function
+      // is a function which operates asynchronously via the event loop,
+      // using an implicit Promise to return its result. But the syntax
+      // and structure of your code using async functions is much more
+      // like using standard synchronous functions.
+      //
+      // Async functions always return a promise. If the function returns
+      // a value, the promise will be resolved with that value. If the
+      // function throws an exception, the promise will be rejected.
+
+      async function hello() {
+        return "Hey guy!";
+        //throw new Error("uh oh");
+      }
+
+      const sing = async () => {
+        return "LA LA LA LA";
+        //throw "OH NO, PROBLEM!";
+      };
+      sing()
+      .then((val) => {
+        console.log(val);
+        return hello()
+      })
+      .then((val) => console.log(val))
+
+      // await
+      // The await expression causes async function execution to pause
+      // until a Promise is settled (that is, fulfilled or rejected),
+      // and to resume execution of the async function after fulfillment.
+      // When resumed, the value of the await expression is that of the
+      // fulfilled Promise.
+
+      async function rainbow() {                  //function declaration
+        await delayedColorChange("red", 1000);
+        await delayedColorChange("orange", 1000);
+        await delayedColorChange("yellow", 1000);
+        await delayedColorChange("green", 1000);
+        return "All done!";
+      }
+
+      rainbow().then((message) => console.log(message));
     </script>
   </head>
   <body>
