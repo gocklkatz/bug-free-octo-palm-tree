@@ -3,55 +3,83 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scratch</title>
+    <title>Guthub API</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
   </head>
   <body>
     <script>
       const GITHUB_TOKEN = "";
 
-      let uniqueFollowers = new Set();
-      let cnt = 1;
+      const maxDepth = 2;
+      const maxCallCount = 1000;
 
-      function processFollowers(data) {
-        for (const follower of data) {
-          uniqueFollowers.add(follower.login);
+      const visited = new Set();
+      let callCount = 1;
+
+      async function getAllFollowers(username, depth) {
+        if (visited.has(username)) {
+          console.log(`Username: ${username} already visited`);
+          return [];
         }
-      }
+        visited.add(username);
 
-      async function retrieveUserFollowers(user, cnt) {
-        try {
-          const response = await fetch(
-            "https://api.github.com/users/" + user + "/followers?page=" + cnt,
-            {
-              headers: {
-                Authorization: `token ${GITHUB_TOKEN}`, // or `Bearer ${GITHUB_TOKEN}`
-                "User-Agent": "MyGitHubApp", // GitHub requires a user agent string
-              },
-            }
+        let page = 1;
+        const allFollowers = [];
+
+        while (true) {
+          console.log(
+            `Username: ${username}, Depth: ${depth}, Page: ${page}, CallCount: ${callCount}, Visited: ${visited.size}`
           );
-          //console.log(response);
-          const data = await response.json();
-          //console.log(data);
-          processFollowers(data);
-        } catch (error) {
-          console.error("Error:", error);
+
+          const url = `https://api.github.com/users/${username}/followers?per_page=100&page=${page}`;
+          let response = null;
+          if (callCount < maxCallCount) {
+            response = await fetch(url, {
+              headers: {
+                Authorization: `token ${GITHUB_TOKEN}`,
+                "User-Agent": "MyGitHubScript",
+              },
+            });
+            callCount++;
+          } else {
+            console.log("Too many API calls");
+            break;
+          }
+
+          if (!response.ok) {
+            console.error(`Failed to fetch ${url}: HTTP ${response.status}`);
+            break;
+          }
+
+          const followers = await response.json();
+
+          if (followers.length === 0) {
+            break;
+          }
+
+          allFollowers.push(...followers);
+          page++;
         }
+
+        if (depth < maxDepth) {
+          for (const follower of allFollowers) {
+            follower.followers = await getAllFollowers(
+              follower.login,
+              depth + 1
+            );
+          }
+        } else {
+          console.log(`Username: ${username}, Max depth reached`);
+        }
+
+        return allFollowers;
       }
 
-      async function main() {
-        let user = "gocklkatz";
-        await retrieveUserFollowers(user, 1);
-
-        for (const follower of uniqueFollowers) {
-          //   console.log("Follower: " + follower);
-          //   console.log("uniqueFollowers: " + uniqueFollowers.size);
-          await retrieveUserFollowers(follower, 1);
-        }
-
-        //console.log(uniqueFollowers.size);
-      }
-
-      //main();
+      // getAllFollowers("gocklkatz", 1)
+      //   .then((data) => {
+      //     console.log(data);
+      //   })
+      //   .catch(console.error);
     </script>
   </body>
 </html>
