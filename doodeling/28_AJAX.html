@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript AJAX</title>
     <style></style>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script></script>
   </head>
   <body>
+    <!--
+    <h1>Dad Jokes</h1>
+    <button id="getJokes">Get Joke</button>
+    <div id="output">
+      <ul id="jokes"></ul>
+    </div>
+    -->
+
     <script>
       //API examples:
       // https://jsonplaceholder.typicode.com
@@ -27,7 +36,7 @@
       const exampleObject = {
         message: "Hello, World!",
         id: 123,
-        items: ["apple", "banana", "cherry"]
+        items: ["apple", "banana", "cherry"],
       };
       // JSON: JavaScript Object Notation
       // keys are in double quotes!
@@ -57,17 +66,78 @@
 
       // AJAX: Asynchronous JavaScript and XML
       // (AJAJ: Asynchronous JavaScript and JSON)
-      let xhr = new XMLHttpRequest();
-      xhr.open("GET", "https://jsonplaceholder.typicode.com/todos/1", true);
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
-          const dataObj = JSON.parse(xhr.responseText);
-          console.log(dataObj);
-          console.log("ID: " + dataObj.id);
-        }
-      };
-      //xhr.send();
+      //https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+      // let xhr = new XMLHttpRequest();
+      // xhr.open("GET", "https://jsonplaceholder.typicode.com/todos/1", true);
+      // xhr.onload = () => {
+      //   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+      //   const dataObj = JSON.parse(xhr.responseText);
+      //   console.log(dataObj);
+      //   console.log("ID: " + dataObj.id);
+      // };
+      // xhr.onerror = () => {
+      //   console.log("Error: " + xhr.statusText);
+      // };
+      // xhr.send();
+
+      // Fetch API
+      // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+      // async function fetchData() {
+      //   for (let id = 1; id <= 5; id++) {
+      //     const response = await fetch(
+      //       "https://jsonplaceholder.typicode.com/todos/" + id
+      //     );
+      //     const data = await response.json();
+      //     console.log(data);
+
+      //     const output = document.querySelector("#output");
+      //     output.innerHTML += `<p>${data.id} - ${data.title}</p>\n`;
+      //   }
+      // }
+      // fetchData();
+
+      // Axios
+      // axios.get("https://jsonplaceholder.typicode.com/todos/1")
+      //   .then(function (response) {
+      //     // handle success
+      //     console.log(response);
+      //     console.log(response.data);
+      //     console.log("ID: " + response.data.id);
+      //   })
+      //   .catch(function (error) {
+      //     // handle error
+      //     console.log(error);
+      //   })
+      //   .finally(function () {
+      //     // always executed
+      //   });
+      //
+      // const getStarWarsData = async () => {
+      //   try {
+      //     const response = await axios.get("https://jsonplaceholder.typicode.com/todos/1");
+      //     console.log("ID: " + response.data.id);
+      //   } catch (error) {
+      //     console.error(error);
+      //   }
+      // };
+      // getStarWarsData();
+      //
+      // Headers with Axios
+      // async function fetchData() {
+      //   try {
+      //     const response = await axios.get("https://icanhazdadjoke.com/", {
+      //       headers: {
+      //         Accept: "application/json",
+      //       },
+      //     });
+      //     const outputUl = document.querySelector("#jokes");
+      //     outputUl.innerHTML += `<li>${response.data.joke}</li>\n`;
+      //   } catch (error) {
+      //     console.error(error);
+      //   }
+      // }
+      // const button = document.querySelector("#getJokes");
+      // button.addEventListener("click", fetchData);
     </script>
   </body>
 </html>
