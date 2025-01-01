@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript AJAX</title>
+    <style></style>
+    <script></script>
+  </head>
+  <body>
+    <script>
+      //API examples:
+      // https://jsonplaceholder.typicode.com
+      // https://openweathermap.org/api
+      // https://www.twilio.com/docs/usage/api
+      // https://icanhazdadjoke.com/api
+      // https://www.tvmaze.com/api
+      // https://catfact.ninja/
+      // https://swapi.tech/
+
+      //JSON: JavaScript Object Notation
+      // Standard: https://www.json.org/json-en.html
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSO
+      // JSON.parse() and JSON.stringify()
+
+      // javascript object
+      const exampleObject = {
+        message: "Hello, World!",
+        id: 123,
+        items: ["apple", "banana", "cherry"]
+      };
+      // JSON: JavaScript Object Notation
+      // keys are in double quotes!
+      const exampleJSON = `{
+        "message": "Hello, World!",
+        "id": 123,
+        "items": ["apple", "banana", "cherry"]
+      }`;
+
+      // Postman: https://www.postman.com/
+      // Hoppscotch: https://hoppscotch.io/
+
+      // HTTP Verb: GET, POST, PUT, DELETE
+      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+
+      // HTTP Status Codes
+      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+      // 200: OK
+      // 300: Redirect
+      // 400: Client Error (User or client side did wrong)
+      // 404: Not Found
+      // 500: Server Error (Server side did wrong)
+
+      // HTTP Headers
+      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
+      // e.g. Accept: application/json
+
+      // AJAX: Asynchronous JavaScript and XML
+      // (AJAJ: Asynchronous JavaScript and JSON)
+      let xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://jsonplaceholder.typicode.com/todos/1", true);
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+          const dataObj = JSON.parse(xhr.responseText);
+          console.log(dataObj);
+          console.log("ID: " + dataObj.id);
+        }
+      };
+      //xhr.send();
+    </script>
+  </body>
+</html>
