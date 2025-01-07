@@ -1,12 +1,19 @@
-//console.log('Your code goes here...'); 
-// Core Types
-//   number 1, 5.3, -10
-//   string 'hi', "hi", `hi`
-//   boolean true, false
-function add(n1, n2) {
-    return n1 + n2;
+// Object types
+// const person: {
+//     name: string;
+//     age: number;
+// } = {
+var person = {
+    name: "Max",
+    age: 30,
+};
+//console.log(person.name);
+// Array types
+var hobbies;
+hobbies = ["Sports", "Cooking"];
+for (var _i = 0, hobbies_1 = hobbies; _i < hobbies_1.length; _i++) {
+    var hobby = hobbies_1[_i];
+    console.log(hobby.toUpperCase());
 }
-var number1 = 5;
-var number2 = 2.8;
-var result = add(number1, number2);
-console.log(result);
+var favoriteActivities;
+favoriteActivities = ["Sports", 3];

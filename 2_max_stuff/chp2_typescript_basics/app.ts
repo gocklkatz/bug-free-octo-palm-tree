@@ -1,16 +1,23 @@
-//console.log('Your code goes here...'); 
+// Object types
 
-// Core Types
-//   number 1, 5.3, -10
-//   string 'hi', "hi", `hi`
-//   boolean true, false
+// const person: {
+//     name: string;
+//     age: number;
+// } = {
+const person = {
+  name: "Max",
+  age: 30,
+};
 
-function add(n1: number, n2: number): number {
-    return n1 + n2;
+//console.log(person.name);
+
+// Array types
+let hobbies: string[];
+hobbies = ["Sports", "Cooking"];
+
+for (const hobby of hobbies) {
+  console.log(hobby.toUpperCase());
 }
 
-const number1 = 5;
-const number2 = 2.8;
-
-const result = add(number1, number2);
-console.log(result);
+let favoriteActivities: any[];
+favoriteActivities = ["Sports", 3];
