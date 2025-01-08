@@ -1,19 +1,37 @@
-// Object types
-// const person: {
-//     name: string;
-//     age: number;
-// } = {
-var person = {
-    name: "Max",
-    age: 30,
-};
-//console.log(person.name);
-// Array types
-var hobbies;
-hobbies = ["Sports", "Cooking"];
-for (var _i = 0, hobbies_1 = hobbies; _i < hobbies_1.length; _i++) {
-    var hobby = hobbies_1[_i];
-    console.log(hobby.toUpperCase());
+//Function return types and void
+function add(n1, n2) {
+    return n1 + n2;
 }
-var favoriteActivities;
-favoriteActivities = ["Sports", 3];
+function printResult(num) {
+    console.log('Result: ' + num);
+}
+var someValue; // undefined is a valid type in TypeScript
+function returnUndefined() {
+    return;
+}
+//Function types
+//let combineValues: Function;
+var combineValues;
+combineValues = add;
+//console.log(combineValues(8, 8));
+//Function types and callbacks
+function addAndHandle(n1, n2, cb) {
+    var result = n1 + n2;
+    cb(result);
+}
+addAndHandle(10, 20, function (result) {
+    console.log(result);
+});
+//Unknown type
+var userInput;
+var userName;
+userInput = 5;
+userInput = 'Max';
+//userName = userInput; // This will throw an error, type any for userInput would work
+if (typeof userInput === 'string') {
+    userName = userInput;
+}
+//Never type
+function generateError(message, code) {
+    throw { message: message, errorCode: code };
+}
